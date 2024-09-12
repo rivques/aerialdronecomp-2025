@@ -39,10 +39,10 @@ class DroneManager:
     error_history_length = 15 # seconds
     lerp_threshold = 0.15 # m
     pid_controllers = [
-        PID(70, 4, 3, setpoint=0, output_limits=(-100, 100)), # x
-        PID(70, 4, 3, setpoint=0, output_limits=(-100, 100)), # y
-        PID(150, 15, 1, setpoint=0, output_limits=(-100, 100)), # z
-        PID(2, 0, 0, setpoint=0, output_limits=(-100, 100), error_map=yaw_clip) # yaw
+        PID(70, 4, 3, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=True), # x old gains: 70, 4, 3
+        PID(70, 4, 3, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=True), # y old gains: 70, 4, 3
+        PID(150, 15, 1, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=True), # z old gains: 150, 15, 1
+        PID(2, 0, 0, setpoint=0, output_limits=(-100, 100), error_map=yaw_clip, proportional_on_measurement=True) # yaw old gains: 2, 0, 0
     ]
 
     _target_pose = np.array([0, 0, 0, 0])
