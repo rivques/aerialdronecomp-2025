@@ -13,6 +13,10 @@ import multiprocessing
 import queue
 from utils.data_logging import DataLogger
 
+# unswizzle asyncio.sleep bc codrone swizzles it for some reason
+
+asyncio.sleep = original_asyncio_sleep
+
 # used for communnication of when the drone has arrived at its target
 class ManagedFlightState(Enum):
     IDLE = 0

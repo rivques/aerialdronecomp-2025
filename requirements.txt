@@ -1,5 +1,5 @@
 codrone_edu
-#simple-pid
-#matplotlib
+simple-pid
+matplotlib
 pygame
 setuptools
