@@ -1,4 +1,4 @@
-codrone_edu
+codrone_edu==2.1
 simple-pid
 matplotlib
 pygame
