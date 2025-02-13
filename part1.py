@@ -4,7 +4,7 @@ import logging
 import utils.field_locations as fl
 logging.basicConfig(level=logging.DEBUG)
 if __name__ == "__main__":
-    drone_manager = DroneManager(drone_type=DroneType.REAL)
+    drone_manager = DroneManager(drone_type=DroneType.REAL, calibrate_sensors=False)
 
     SequentialAction(drone_manager, [
         ReadColorAndSetLEDAction(), # +15 (15 total)
@@ -33,22 +33,4 @@ if __name__ == "__main__":
         GoToAction(0, 0.2, None, "GoBack", 3),
         GoToAction(2.4, None, None, "GoThruArchesAgain", 3), # +10 (125 total)
         LandAction()
-    ], ErrorHandlingStrategy.LAND).run_sequence()
-
-    input("Press ENTER to start Segment 2")
-
-    SequentialAction(drone_manager, [
-        ReadColorAndSetLEDAction(), # +15 (140 total)
-        FastTakeoffAction(fl.yellow_keyhole[2], timeout=0), # +10 (150 total)
-        GoToAction(fl.mat_2[0], fl.mat_2[1], None, "ReestablishTakeoff", timeout=0), # because the drone wants to go to 0,0 on TO
-        WaitAction(3),
-        GoToAction(fl.yellow_keyhole[0], fl.yellow_keyhole[1]+0.2, None, "GoThruYellowKeyhole", 3), # +15 (165 total)
-        GoToAction(None, fl.yellow_keyhole[1] - 0.2, None, "GoBack", 3),
-        GoToAction(None, fl.green_keyhole[1], None, "GoThruYellowKeyholeAgain", 3), # +15 (180 total)
-        GoToAction(None, None, fl.green_keyhole[2], "LowerForGreenKeyhole", 3),
-        GoToAction(fl.green_keyhole[0]+0.2, None, None, "GoThruGreenKeyhole", 3), # +15 (195 total)
-        GoToAction(fl.green_keyhole[0]-0.1, fl.green_keyhole[1], None, "GoBack", 3),
-        GoToAction(fl.green_keyhole[0]+0.2, None, None, "GoThruGreenKeyholeAgain", 3), # +15 (210 total)
-        GoToAction(fl.large_landing_cube[0], fl.large_landing_cube[1], None, "GoToLandingCube", 3),
-        LandAction() # +25 (235 total)
     ], ErrorHandlingStrategy.LAND).run_sequence()
