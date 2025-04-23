@@ -12,7 +12,7 @@ if __name__ == "__main__":
         GoToAction(0, 0, 1, "TakeoffSettle", 3),
         # start of fig8 #1
         GoToAction(1.4, None, None, "GoThruArch", 3),
-        GoToAction(None, None, 1.7, "RaiseForOver", 3),
+        GoToAction(None, None, 1.8, "RaiseForOver", 3),
         GoToAction(2.4, None, None, "GoOverBlue", 3),
         GoToAction(None, None, 1.2, "LowerAroundBlue", 3),
         GoToAction(1.2, None, None, "GoToRed", 3),
