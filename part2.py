@@ -22,6 +22,6 @@ if __name__ == "__main__":
         GoToAction(fl.green_keyhole[0]-0.2, None, None, "GoThruGreenKeyhole", 3), # +15 (195 total)
         GoToAction(fl.green_keyhole[0]+0.2 + 0.6*X_DRIFT_COEFF, None, None, "GoBack", 3),
         GoToAction(fl.green_keyhole[0]-0.2, None, None, "GoThruGreenKeyholeAgain", 3), # +15 (210 total)
-        GoToAction(fl.large_landing_cube[0]+0.3*X_DRIFT_COEFF, fl.large_landing_cube[1]+1.9*Y_DRIFT_COEFF, None, "GoToLandingCube", 3),
+        GoToAction(fl.large_landing_cube[0]+0.3*X_DRIFT_COEFF, fl.large_landing_cube[1]+2.0*Y_DRIFT_COEFF, None, "GoToLandingCube", 3),
         LandAction() # +25 (235 total)
     ], ErrorHandlingStrategy.LAND).run_sequence()

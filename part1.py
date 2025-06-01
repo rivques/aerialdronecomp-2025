@@ -31,6 +31,7 @@ if __name__ == "__main__":
         GoToAction(0, 0, 1.2, "DescendForArch", 4),
         GoToAction(2.4, None, None, "GoThruArches", 3), # +10 (115 total)
         GoToAction(0, 0.2, None, "GoBack", 3),
-        GoToAction(2.4, None, None, "GoThruArchesAgain", 3), # +10 (125 total)
-        LandAction()
+        GoToAction(2.5, None, None, "GoThruArchesAgain", 3), # +10 (125 total)
+        LandAction(),
+        ReadColorAndSetLEDAction(), # +15 (140 total)
     ], ErrorHandlingStrategy.LAND).run_sequence()

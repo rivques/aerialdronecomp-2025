@@ -47,7 +47,7 @@ class DroneManager:
         PID(70, 4, 3, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=False), # x old gains: 70, 4, 3
         PID(70, 4, 3, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=False), # y old gains: 70, 4, 3
         PID(150, 15, 1, setpoint=0, output_limits=(-100, 100), proportional_on_measurement=False), # z old gains: 150, 15, 1
-        PID(2, 0, 0, setpoint=0, output_limits=(-100, 100), error_map=yaw_clip, proportional_on_measurement=False) # yaw old gains: 2, 0, 0
+        PID(0, 0, 0, setpoint=0, output_limits=(-100, 100), error_map=yaw_clip, proportional_on_measurement=False) # yaw old gains: 2, 0, 0
     ]
 
     _target_pose = np.array([0, 0, 0, 0])
